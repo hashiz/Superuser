@@ -31,6 +31,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.Toast;
 
 import com.koushikdutta.superuser.util.Settings;
+import com.koushikdutta.superuser.util.TempUnroot;
 import com.koushikdutta.widgets.BetterListFragmentInternal;
 import com.koushikdutta.widgets.FragmentInterfaceWrapper;
 import com.koushikdutta.widgets.ListItem;
@@ -391,6 +392,28 @@ public class SettingsFragmentInternal extends BetterListFragmentInternal {
         })
         .setAttrDrawable(R.attr.notificationsIcon);
         
+        addItem(R.string.settings, new ListItem(this, R.string.temp_unroot, R.string.temp_unroot_summary) {
+            @Override
+            public void onClick(View view) {
+                setEnabled(false);
+            	boolean success;
+                if ( getChecked() ) {
+                	success = TempUnroot.doTempRooting();
+                }
+                else {
+                	success = TempUnroot.doTempUnroot();
+                }
+                if ( success ) {
+	                super.onClick(view);
+	                Settings.setTempUnroot(getActivity(), getChecked());
+                }
+                setEnabled(true);
+            }
+        })
+        .setAttrDrawable(R.attr.tempunrootIcon)
+        .setCheckboxVisible(true)
+        .setChecked(Settings.getTempUnroot(getActivity()));
+
         if ("com.koushikdutta.superuser".equals(getActivity().getPackageName())) {
             addItem(R.string.settings, new ListItem(this, R.string.theme, 0) {
                 void update() {

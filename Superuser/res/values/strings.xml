@@ -87,4 +87,10 @@
     <string name="light">Light</string>
     <string name="dark">Dark</string>
     <string name="pin_disabled">Superuser PIN protection disabled</string>
+    <string name="temp_unroot">Temporary unroot</string>
+    <string name="temp_unroot_summary">Temporary unrooting.</string>
+    <string name="title_tempunrooting">Unrooting</string>
+    <string name="progress_tempunrooting">Unrooting...</string>
+    <string name="title_temprooting">Rooting</string>
+    <string name="progress_temprooting">Rooting...</string>
 </resources>

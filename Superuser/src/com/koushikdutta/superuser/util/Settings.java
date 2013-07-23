@@ -378,4 +378,12 @@ public class Settings {
     public static final void setTheme(Context context, int theme) {
         setInt(context, KEY_THEME, theme);
     }
+
+    private static final String TEMP_UNROOT = "temp_unroot";
+    public static final boolean getTempUnroot(Context context) {
+    	return getBoolean(context, TEMP_UNROOT, false);
+    }
+    public static final void setTempUnroot(Context context, boolean unroot) {
+        setBoolean(context, TEMP_UNROOT, unroot);
+    }
 }
